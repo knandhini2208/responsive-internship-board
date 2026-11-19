@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore fictional student internship opportunities and apply online.">
+  <title>Internship Board | Student Opportunities</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to internships</a>
+  <header class="site-header">
+    <div class="nav-wrap">
+      <a class="brand" href="#" aria-label="LaunchBoard home"><span class="brand-mark">L</span> LaunchBoard</a>
+      <span class="header-note">STUDENT CAREER HUB</span>
+    </div>
+  </header>
+
+  <main id="main" class="container">
+    <section class="hero" aria-labelledby="page-title">
+      <div class="hero-copy">
+        <p class="eyebrow">YOUR NEXT STEP STARTS HERE</p>
+        <h1 id="page-title">Find an internship.<br><span>Build your future.</span></h1>
+        <p class="hero-text">Explore opportunities, discover new skills, and take the next step in your career journey.</p>
+        <div class="hero-pills"><span>✦ Student opportunities</span><span>⌁ Beginner friendly</span></div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="art-orbit orbit-one"></div><div class="art-orbit orbit-two"></div>
+        <div class="art-card"><span class="art-icon">↗</span><strong>Dream big.</strong><small>Your next opportunity is waiting.</small><div class="art-bars"><i></i><i></i><i></i></div></div>
+        <span class="spark spark-one">✦</span><span class="spark spark-two">✳</span>
+      </div>
+    </section>
+
+    <section class="board-section" aria-labelledby="board-title">
+      <div class="section-heading">
+        <div><p class="eyebrow">EXPLORE OPENINGS</p><h2 id="board-title">Internship opportunities</h2><p class="muted">Find a role that matches your interests and skills.</p></div>
+        <p class="result-count" id="result-count" aria-live="polite">Loading opportunities…</p>
+      </div>
+
+      <form class="filters" id="filter-form" role="search">
+        <div class="search-field">
+          <label for="search">Search internships</label>
+          <div class="input-wrap"><span aria-hidden="true">⌕</span><input id="search" name="search" type="search" placeholder="Search role, skill or location…"></div>
+        </div>
+        <div class="filter-field">
+          <label for="domain">Domain</label>
+          <select id="domain" name="domain"><option value="">All domains</option></select>
+        </div>
+        <div class="filter-field">
+          <label for="mode">Work mode</label>
+          <select id="mode" name="mode"><option value="">All modes</option><option>Remote</option><option>Hybrid</option><option>On-site</option></select>
+        </div>
+        <button class="clear-button" id="clear-filters" type="button">Clear filters</button>
+      </form>
+
+      <div id="status-message" class="status-message" role="status" aria-live="polite">Loading internships…</div>
+      <div id="internship-list" class="internship-grid" aria-busy="true"></div>
+      <div id="error-panel" class="state-panel" hidden><div class="state-icon">!</div><h3>We couldn't load internships</h3><p>Please check your connection and try again.</p><button class="primary-button" id="retry-button" type="button">Try again</button></div>
+      <div id="empty-panel" class="state-panel" hidden><div class="state-icon">⌕</div><h3>No internships found</h3><p>Try another keyword or clear your filters to see all opportunities.</p><button class="secondary-button" id="empty-clear" type="button">Clear filters</button></div>
+    </section>
+
+    <section class="bottom-banner"><div><p class="eyebrow">READY TO GROW?</p><h2>Every expert was once a beginner.</h2><p>Take a chance on your potential. Your journey starts with one application.</p></div><span aria-hidden="true">✦</span></section>
+  </main>
+
+  <footer><div class="footer-inner"><a class="brand footer-brand" href="#"><span class="brand-mark">L</span> LaunchBoard</a><p>Built for learners, dreamers and future professionals.</p><small>© 2026 LaunchBoard · Fictional internship listings for learning purposes.</small></div></footer>
+
+  <dialog id="details-dialog" class="modal" aria-labelledby="details-title">
+    <div class="modal-head"><span class="modal-label">INTERNSHIP DETAILS</span><button class="icon-button" type="button" data-close="details-dialog" aria-label="Close details">×</button></div>
+    <div id="details-content"></div>
+  </dialog>
+
+  <dialog id="apply-dialog" class="modal" aria-labelledby="apply-title">
+    <div class="modal-head"><span class="modal-label">TAKE THE NEXT STEP</span><button class="icon-button" type="button" data-close="apply-dialog" aria-label="Close application form">×</button></div>
+    <h2 id="apply-title">Apply for this internship</h2><p class="muted" id="apply-role"></p>
+    <form id="application-form" class="application-form">
+      <input type="hidden" id="application-internship-id" name="internshipId">
+      <div><label for="applicant-name">Full name <span aria-hidden="true">*</span></label><input id="applicant-name" name="name" autocomplete="name" required maxlength="80" placeholder="Your full name"></div>
+      <div><label for="applicant-email">Email address <span aria-hidden="true">*</span></label><input id="applicant-email" name="email" type="email" autocomplete="email" required placeholder="you@example.com"></div>
+      <div><label for="portfolio-url">Portfolio URL <span class="optional">(optional)</span></label><input id="portfolio-url" name="portfolioUrl" type="url" placeholder="https://yourportfolio.com"></div>
+      <p id="application-feedback" class="form-feedback" role="status" aria-live="polite"></p>
+      <button class="primary-button submit-button" type="submit">Submit application <span aria-hidden="true">→</span></button>
+    </form>
+  </dialog>
+</body>
+</html>

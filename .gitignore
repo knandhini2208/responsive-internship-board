@@ -1,0 +1,7 @@
+node_modules/
+.env
+.DS_Store
+# Application data - keep applicant details private
+data/applications.json
+# Log files
+*.log
